@@ -1,73 +1,21 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# 3º princípio do Twelve Factor (Config) no Nest.js
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Muita gente acha que o 3º princípio do Twelve Factor é apenas sobre variáveis de ambiente, mas ele vai muito além disso.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Ele fala sobre como você deve tratar as configurações da sua aplicação, como você deve separar as configurações de ambiente, como você deve tratar as configurações de banco de dados, de cache, de fila, de autenticação, de autorização, de logs, de métricas, de tudo que você possa imaginar.
 
-## Description
+O Nest.js tem um módulo chamado ConfigModule que facilita muito a aplicação deste princípio, mas na documentação oficial não é ensinado como aplicar este princípio de forma avançada, de modo que você possa ter uma aplicação totalmente configurável e escalável.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Neste vídeo eu mostro como você pode aplicar o 3º princípio do Twelve Factor no Nest.js de forma avançada, utilizando o ConfigModule e o pacote dotenv. []()
 
-## Installation
+Este repositório aplica os conceitos de Nest.js usando no curso Full Cycle 3.0.
 
-```bash
-$ npm install
-```
+## Branches
 
-## Running the app
+- `main`: código final do vídeo
+- `01-sem-config-module`: Exemplo de aplicação sem o ConfigModule
+- `02-config-module-simples`: Exemplo de aplicação com o ConfigModule
+- `03-config-module-e-validacao`: Exemplo de aplicação com o ConfigModule e validação
+- `04-config-module-multiple-envs`: Exemplo de aplicação com o ConfigModule e múltiplos ambientes
+- `05-definitive-config-module`: Exemplo de aplicação com o ConfigModule definitivo (igual ao main)
 
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
