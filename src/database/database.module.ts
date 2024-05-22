@@ -1,20 +1,22 @@
 import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Config } from '../config/config.module';
+import { Configuration } from '../config/config.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
-      useFactory: (configService: ConfigService<Config>) => ({
-        type: configService.get('TYPEORM_CONNECTION') as any,
-        host: configService.get('TYPEORM_HOST'),
-        port: configService.get('TYPEORM_PORT') as number,
-        username: configService.get('TYPEORM_USERNAME') as string,
-        password: configService.get('TYPEORM_PASSWORD') as string,
-        database: configService.get('TYPEORM_DATABASE') as string,
+      useFactory: (configService: ConfigService<Configuration>) => ({
+        type: configService.get('database.type', { infer: true }) as any,
+        host: configService.get('database.host', { infer: true }),
+        port: configService.get('database.port', { infer: true }),
+        username: configService.get('database.username', { infer: true }),
+        password: configService.get('database.password', { infer: true }),
+        database: configService.get('database.database', {
+          infer: true,
+        }) as string,
+        synchronize: configService.get('database.synchronize', { infer: true }),
         entities: [],
-        synchronize: configService.get('TYPEORM_SYNCHRONIZE') as boolean,
       }),
       inject: [ConfigService],
     }),

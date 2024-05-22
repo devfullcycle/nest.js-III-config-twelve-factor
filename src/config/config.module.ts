@@ -4,17 +4,21 @@ import {
   ConfigModule as NestConfigModule,
 } from '@nestjs/config';
 import { join } from 'path';
-import * as Joi from 'joi';
+import { configuration } from './configuration';
 
-export type Config = {
-  TYPEORM_CONNECTION: string;
-  TYPEORM_HOST: string;
-  TYPEORM_PORT: number;
-  TYPEORM_USERNAME: string;
-  TYPEORM_PASSWORD: string;
-  TYPEORM_DATABASE: string;
-  TYPEORM_SYNCHRONIZE: boolean;
-  REDIS_DSN: string;
+export type Configuration = {
+  database: {
+    type: any;
+    host: string;
+    port: number;
+    username: string;
+    password: string;
+    database: string;
+    synchronize: boolean;
+  };
+  redis: {
+    dsn: string;
+  };
 };
 
 @Module({})
@@ -29,16 +33,17 @@ export class ConfigModule extends NestConfigModule {
         join(__dirname, `../../.env.${process.env.NODE_ENV}`),
         join(__dirname, '../../.env'),
       ],
-      validationSchema: Joi.object({
-        TYPEORM_CONNECTION: Joi.string().valid('mysql').required(),
-        TYPEORM_HOST: Joi.string().required(),
-        TYPEORM_PORT: Joi.number().required(),
-        TYPEORM_USERNAME: Joi.string().required(),
-        TYPEORM_PASSWORD: Joi.string().required(),
-        TYPEORM_DATABASE: Joi.string().required(),
-        TYPEORM_SYNCHRONIZE: Joi.boolean().required(),
-        REDIS_DSN: Joi.string().required(),
-      }),
+      // validationSchema: Joi.object({
+      //   TYPEORM_CONNECTION: Joi.string().valid('mysql').required(),
+      //   TYPEORM_HOST: Joi.string().required(),
+      //   TYPEORM_PORT: Joi.number().required(),
+      //   TYPEORM_USERNAME: Joi.string().required(),
+      //   TYPEORM_PASSWORD: Joi.string().required(),
+      //   TYPEORM_DATABASE: Joi.string().required(),
+      //   TYPEORM_SYNCHRONIZE: Joi.boolean().required(),
+      //   REDIS_DSN: Joi.string().required(),
+      // }),
+      load: [configuration],
       ...otherOptions,
     });
   }
