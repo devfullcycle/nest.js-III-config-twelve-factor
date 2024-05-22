@@ -1,0 +1,16 @@
+services:
+  
+  db:
+    image: mysql:8.0.30-debian
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=nest
+      - MYSQL_ROOT_PASSWORD=root
+    security_opt:
+      - seccomp:unconfined
+  
+  redis:
+    image: redis:7.0.8-alpine 
+    ports:
+      - 6379:6379
