@@ -10,6 +10,8 @@ Neste vídeo eu mostro como você pode aplicar o 3º princípio do Twelve Factor
 
 Este repositório aplica os conceitos de Nest.js usando no curso Full Cycle 3.0.
 
+Veja a aula no Youtube: [https://www.youtube.com/watch?v=j7ivOwbhQG8](https://www.youtube.com/watch?v=j7ivOwbhQG8)
+
 ## Branches
 
 - `main`: código final do vídeo
